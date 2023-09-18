@@ -1,136 +1,141 @@
-<form id ="text-field">
-<table>
-    <tr>
-      <td valign="top">
-        <ul>
-            <li><a href="./profile/index.html">Account</a></li>
-            <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
-            <li><a href="../settings/navigation.html">Courses</a></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Inbox</a></li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Studio</a></li>
-            <li><a href="#">Commons</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>
-      </td>
-      <td valign="top">
-        <ul>
-            <li><a href="../home.html">Home</a></li>
-            <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
-            <li>
-              <a href="./index.html">Assignments</a>
-            </li>
-            <li><a href="../grades.html">Grades</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Panopto Video</a></li>
-            <li><a href="#">Discussions</a></li>
-            <li><a href="#">Announcements</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Rubrics</a></li>
-            <li><a href="#">Outcomes</a></li>
-            <li><a href="#">Collaborations</a></li>
-            <li><a href="#">Syllabus</a></li>
-            <li><a href="../settings/navigation.html">Settings</a></li>
-        </ul>
-      </td>
-      <td valign="top">
-        <select id="select-edit">
-            <option value="EDIT">Edit</option>
-            <option selected value="SPEEDGRADER">Speed Grader</option>
-            <option value="DUPLICATE">Duplicate</option>
-            <option value="DELETE">Delete</option>
-            <option value="MOVETO">Move To...</option>
-            <option value="SENDTO">Send To...</option>
-            <option value="COPYTO">Copy To...</option>
-            <option value="SHARE">Share to Commons</option>
-          </select>
-        <hr>
-        <label for="assignmentName"><h2>Assignment Name</h2></label> <br />
-        <input
-          type="text"
-          value="A1 ENV + HTML"
-          id="assignmentName"
-          placeholder="Assignment Name"
-        />
-        <p>
-        <textarea cols="50" rows="3">
-          This is the assignment description
-        </textarea>
-  
-        <h3>Points</h3>
-        <input value="100" type="number" max="100" min="50" step="5" />
-
-        <h3>Assignments Group</h3>
-        <select>
-            <option selected value="ASSIGMENTS">ASSIGMENTS</option>
-            <option value="QUIZZES">QUIZZES</option>
-            <option value="EXAMS">EXAMS</option>
-            <option value="PROJECT">PROJECT</option>
-        </select>
-
-        <h3>Display Grade as</h3>
-        <select>
-            <option selected value="PERCENTAGE">Percentage</option>
-            <option value="PERCENTILE">Percentile</option>
-            <option value="HUNDRED">Hundred</option>
-        </select>
-
-        <h3>Submission Type</h3>
-        <select>
-            <option selected value="ONLINE">Online</option>
-            <option value="HYBRID">Hybrid</option>
-            <option value="PAPERBASE">Paperbase</option>
-        </select>
-
-        <h3>Online Entry Options</h3>
-        <input type="checkbox" id="textEntry" />
-        <label for="textEntry">Text Entry</label><br />
-        <input type="checkbox" /> Website URL <br />
-        <label> <input type="checkbox" /> Media Recordings </label> <br />
-        <input type="checkbox" /> Student Annotations <br />
-        <input type="checkbox" /> File Uploads<br />
-
-        <h3>Submission Attempts</h3>
-        <select>
-            <option selected value="UNLIMITED">Unlimited</option>
-            <option value="ONCE">Once</option>
-        </select>
-
-        <h3>Plagiarism Review</h3>
-        <select>
-            <option selected value="NONE">None</option>
-            <option value="CHECK">Check</option>
-        </select>
-
-        <h3>Group Assignment</h3>
-        <input type="checkbox" value="GROUP"
-            name="check-group" id="chkbox-group"/>
-        <label for="chkbox-group";>This is a group assignment </label>    <br/>
-
-        <h3>Peer Reviews</h3>
-        <input type="checkbox" value="PEER"
-            name="check-peer" id="chkbox-peer"/>
-        <label for="chkbox-peer">Require Peer Review</label>    <br/>
-
-        <h3>Assgin to</h3>
-        <input type="text" value="Everyone">
-
-        <h3>Due</h3>
-        <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
-
-        <h3>Available from</h3>
-        <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
-
-        <h3>Until</h3>
-        <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
-        <p>
-        <a href="./index.html"><button type="button">Cancel</button></a>
+<!DOCTYPE html>
+<html>
+    <body>
+      <form id ="text-field">
+      <table>
+          <tr>
+            <td valign="top">
+              <ul>
+                  <li><a href="./profile/index.html">Account</a></li>
+                  <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
+                  <li><a href="../settings/navigation.html">Courses</a></li>
+                  <li><a href="#">Calendar</a></li>
+                  <li><a href="#">Inbox</a></li>
+                  <li><a href="#">History</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Commons</a></li>
+                  <li><a href="#">Help</a></li>
+              </ul>
+            </td>
+            <td valign="top">
+              <ul>
+                  <li><a href="../home.html">Home</a></li>
+                  <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                  <li>
+                    <a href="./index.html">Assignments</a>
+                  </li>
+                  <li><a href="../grades.html">Grades</a></li>
+                  <li><a href="#">People</a></li>
+                  <li><a href="#">Panopto Video</a></li>
+                  <li><a href="#">Discussions</a></li>
+                  <li><a href="#">Announcements</a></li>
+                  <li><a href="#">Pages</a></li>
+                  <li><a href="#">Files</a></li>
+                  <li><a href="#">Rubrics</a></li>
+                  <li><a href="#">Outcomes</a></li>
+                  <li><a href="#">Collaborations</a></li>
+                  <li><a href="#">Syllabus</a></li>
+                  <li><a href="../settings/navigation.html">Settings</a></li>
+              </ul>
+            </td>
+            <td valign="top">
+              <select id="select-edit">
+                  <option value="EDIT">Edit</option>
+                  <option selected value="SPEEDGRADER">Speed Grader</option>
+                  <option value="DUPLICATE">Duplicate</option>
+                  <option value="DELETE">Delete</option>
+                  <option value="MOVETO">Move To...</option>
+                  <option value="SENDTO">Send To...</option>
+                  <option value="COPYTO">Copy To...</option>
+                  <option value="SHARE">Share to Commons</option>
+                </select>
+              <hr>
+              <label for="assignmentName"><h2>Assignment Name</h2></label> <br />
+              <input
+                type="text"
+                value="A1 ENV + HTML"
+                id="assignmentName"
+                placeholder="Assignment Name"
+              />
+              <p>
+              <textarea cols="50" rows="3">
+                This is the assignment description
+              </textarea>
         
-        <a href="./index.html"><button type="button">Save</button></a>
-      </td>
-    </tr>
-  </table>
-</form>
+              <h3>Points</h3>
+              <input value="100" type="number" max="100" min="50" step="5" />
+
+              <h3>Assignments Group</h3>
+              <select>
+                  <option selected value="ASSIGMENTS">ASSIGMENTS</option>
+                  <option value="QUIZZES">QUIZZES</option>
+                  <option value="EXAMS">EXAMS</option>
+                  <option value="PROJECT">PROJECT</option>
+              </select>
+
+              <h3>Display Grade as</h3>
+              <select>
+                  <option selected value="PERCENTAGE">Percentage</option>
+                  <option value="PERCENTILE">Percentile</option>
+                  <option value="HUNDRED">Hundred</option>
+              </select>
+
+              <h3>Submission Type</h3>
+              <select>
+                  <option selected value="ONLINE">Online</option>
+                  <option value="HYBRID">Hybrid</option>
+                  <option value="PAPERBASE">Paperbase</option>
+              </select>
+
+              <h3>Online Entry Options</h3>
+              <input type="checkbox" id="textEntry" />
+              <label for="textEntry">Text Entry</label><br />
+              <input type="checkbox" /> Website URL <br />
+              <label> <input type="checkbox" /> Media Recordings </label> <br />
+              <input type="checkbox" /> Student Annotations <br />
+              <input type="checkbox" /> File Uploads<br />
+
+              <h3>Submission Attempts</h3>
+              <select>
+                  <option selected value="UNLIMITED">Unlimited</option>
+                  <option value="ONCE">Once</option>
+              </select>
+
+              <h3>Plagiarism Review</h3>
+              <select>
+                  <option selected value="NONE">None</option>
+                  <option value="CHECK">Check</option>
+              </select>
+
+              <h3>Group Assignment</h3>
+              <input type="checkbox" value="GROUP"
+                  name="check-group" id="chkbox-group"/>
+              <label for="chkbox-group";>This is a group assignment </label>    <br/>
+
+              <h3>Peer Reviews</h3>
+              <input type="checkbox" value="PEER"
+                  name="check-peer" id="chkbox-peer"/>
+              <label for="chkbox-peer">Require Peer Review</label>    <br/>
+
+              <h3>Assgin to</h3>
+              <input type="text" value="Everyone">
+
+              <h3>Due</h3>
+              <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
+
+              <h3>Available from</h3>
+              <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
+
+              <h3>Until</h3>
+              <input type="date" value="2021-01-01" min="2021-12-01" max="2021-02-201" />
+              <p>
+              <a href="./index.html"><button type="button">Cancel</button></a>
+              
+              <a href="./index.html"><button type="button">Save</button></a>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </body>
+</html>
   
