@@ -1,56 +1,183 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link href="../../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../vendors/fontawesome6-4-2/css/all.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
+    </head>
     <body>
-      <table style="border: none;">
-        <tr>
-          <td valign="top">
-            <ul>
-              <li><a href="./index.html">Account</a></li>
-              <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
-              <li><a href="../settings/navigation.html">Courses</a></li>
-              <li><a href="#">Calendar</a></li>
-              <li><a href="#">Inbox</a></li>
-              <li><a href="#">History</a></li>
-              <li><a href="#">Studio</a></li>
-              <li><a href="#">Commons</a></li>
-              <li><a href="#">Help</a></li>
+        <div class="wd-flex-title-container">
+            <div>
+                <img
+                    src="http://pygr.nicey.xyz/learnpythonSnipaste_2023-10-01_23-19-59.png"
+                    alt="Description_of_the_image"
+                    width="80"
+                    height="80"
+                >
+            </div>
 
+            <div class="wd-flex-grow-1">
+              <div class="wd-flex-grow-1 inline">
+              <a href="edit.html">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+              </a>
+              <label>Yue Peng's Profile</label>
+              <hr style="margin: 0px; margin-left:35px; margin-right: 35px;">
+            </div>
+          </div>
+      </div>
+      
+      <div class="wd-flex-row-cotainer">
+          <div class="wd-color-black ">
+              <ul class="wd-kanbas-navigation">
+                  <li class="wd-active">
+                    <!-- NOTE:Later -->
+                      <a href="./index.html">
+                          <i class="fa fa-user-circle-o" aria-hidden="true" style="color: lightgray;"></i>
+                          Account
+                      </a>
+                  </li>
+                  <li>
+                    <!-- NOTE:Later -->
+                      <a href="../dashboard/index.html">
+                        <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+                      </svg>
+                          Dashboard
+                      </a>
+                  </li>
+                  <li>
+                      <a href="../home.html">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          Courses
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <i class="fa fa-calendar-days" aria-hidden="true"></i>
+                          Calendar
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <i class="fa fa-inbox" aria-hidden="true"></i>
+                          Inbox
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          
+                          <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                          History
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                        <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                          Studio
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <i class="fa fa-sign-out" aria-hidden="true"></i>
+                          Commons
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                          <p>
+                          Help
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          </td>
+
+          <div>
+            <ul class="wd-course-navigation">
+                <li>
+                    <a href="#">Notifications</a>
+                </li>
+                <li class="wd-active">
+                    <a href="./index.html">Profile</a>
+                </li>
+                <li>
+                    <a href="#">Files</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li>
+                    <a href="../assignments/assignments.html">Assignment</a>
+                </li>
+                <li>
+                    <a href="#">E-Portfolio</a>
+                </li>
+                <li>
+                    <a href="">Shared content</a>
+                </li>
+                <li>
+                    <a href="#">The Hub</a>
+                </li>
+                <li>
+                    <a href="#">Qwickly course tools</a>
+                </li>
+                <li>
+                    <a href="#">Global Announcements</a>
+                </li>
             </ul>
-          </td>
-          <td valign="top">
-            <ul>
-              <li><a href="../home.html">Home</a></li>
-              <li><a href="#">Notifications</a></li>
-              <li><a href="./index.html">Profile</a></li>
-              <li><a href="#">Files</a></li>
-              <li><a href="../settings/navigation.html">Settings</a></li>
-              <li><a href="#">ePortfolios</a></li>
-              <li><a href="#">Shared Content</a></li>
-              <li><a href="#">The Hub</a></li>
-              <li><a href="#">Qwickly Course Tools</a></li>
-              <li><a href="#">Global Announcements</a></li>
-            </ul>
-          </td>
-    
-          <td valign="top">
-            Yue Peng's Profile
-            <hr>
-            <table width="100%">
-              <tr>
-                <td><h1>Yue Peng</h1></td>
-                <td><a href = "./edit.html"><button type="button"><img src="./pencil.png"  height="15px;"/>Edit Profile</button></a></td>
-              </tr>
-            </table>
+        </div>
+
+
+        <div class="wd-flex-grow-1 wd-main-navigation">
+          <div class="wd-flex-row-main-cotainer">
+              <div>
+                  <i class="fa fa-user-circle-o lightgray" aria-hidden="true" ></i>
+              </div>
+              <div>
+                  <form action="./edit.html">
+                      <a href="./edit.html">
+                          <button type="submit">
+                              <i class="fa fa-pencil fa-rotate-270" aria-hidden="true" ></i>
+                              Edit Profile
+                          </button>
+                      </a>
+                  </form>
+              </div>
+          </div>
+          <h2>
+              Yue Peng
+          </h2>
+          <br>
+          <br>
+          <h3>
+              Contact
+          </h3>
+          <label>
+            No registered services, you can add some on the <a href="#">settings</a> page.
+          </label>
+          <br>
+          <br>
+          <h3>
+              Biography
+          </h3>
+          <label>
+            Software Engineer, Graduate Teaching Assistant, Web Developer
+          </label>
+          <br>
+          <br>
+          <h3>
+              Links
+          </h3>
+          <label>
             
-            
-            <h2>Contact</h2>
-            <p>No registered services, you can add some on the <a href="#">settings</a> page.</p>
-            <h2>Biography</h2>
-            <p>Software Engineer, Graduate Teaching Assistant, Web Developer</p>
-            <h2>Links</h2>
-            <p><a href="https://www.linkedin.com/in/yura-peng">Linkedin</a></p>
-          </td>
-        </tr>
-      </table>
-    </body>
+              <a href="https://www.linkedin.com/in/yura-peng">
+                <i class="fas fa-link" aria-hidden="true"></i>
+                Linkedin
+                  <i class="fa fa-sign-out red" aria-hidden="true" ></i>
+              </a>
+          </label>
+      </div>
+  </div>
+</body>
 </html>
