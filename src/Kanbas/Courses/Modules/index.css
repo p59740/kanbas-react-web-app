@@ -1,0 +1,24 @@
+
+.container {
+    position: relative;
+  }
+  
+.wd-HeadAlignRight {
+    text-align: right;
+  }
+
+.custom-indent {
+    padding-left: 20px;
+  }
+
+.wd-icon{
+    margin:2px;
+}
+
+.wd-icon-moreInter{
+    margin:10px;
+}
+
+.wd-ModuleList{
+    margin:3em;
+}

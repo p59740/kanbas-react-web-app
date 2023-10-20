@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="../../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../vendors/fontawesome6-4-2/css/all.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
+    </head>
+    <body>
+       <div id="root"></div>
+       <script src="Home.js" type="module">
+        import Home from "./Home.js";
+        const html = Home();
+        const root = document.getElementByID("root");
+        root.innerHtml = html;
+       </script>
+  </body>
+</html>

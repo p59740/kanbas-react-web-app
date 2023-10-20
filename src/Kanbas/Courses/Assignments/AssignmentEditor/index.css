@@ -1,0 +1,43 @@
+.wd-flex-grow-1 {
+    flex-grow: 1;
+    margin-left: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .wd-flex-grow-1 .inline {
+
+    margin-left: 0px;
+
+  }
+  
+  .wd-flex-grow-1 a{
+    display: inline;
+    text-decoration: none;
+    color: rgb(212,27,44);
+    margin-left: 0px;
+  }
+
+  .wd-flex-grow-1 button{
+     display: flex end;
+  }
+
+  .wd-block1-font{
+    color: rgb(212,27,44);
+}
+.wd-block1-bg{
+    background-color: rgb(212,27,44);
+}
+
+.wd-new-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .wd-new-container button{
+    margin-right: 2px;
+  }
+
+
+ 
