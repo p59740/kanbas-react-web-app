@@ -1,0 +1,78 @@
+.wd-main-navigation{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 10px;
+  }
+button{
+    background: #f5f5f5;
+    color: #2d3b45;
+    border: 1px solid;
+    border-color: #c7cdd1;
+    border-radius: 3px;
+    transition: background-color .2s ease-in-out;
+    display: inline-block;
+    position: relative;
+    padding: 8px 14px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    text-shadow: none;
+    user-select: none;
+   
+  }
+
+  .main_btn button{
+    width: 100%;
+    display: block;
+    margin-bottom: 3px;
+  }
+ 
+  .wd-main-navigation button i {
+    color: black;
+    margin-bottom: 5px;
+    padding-right: 5px;
+    font-size: 1em;
+  }
+  .label-main{
+   font-weight: bold;
+  }
+
+  .wd-main-navigation i {
+    color: gray;
+    margin-bottom: 5px;
+    font-size: 8em;
+  }
+  .wd-main-navigation a i {
+    color: gray;
+    margin-bottom: 5px;
+    font-size: 1em;
+  }
+
+  .wd-main-navigation a {
+    color: rgb(212,27,44);
+    text-decoration: none;
+  }
+  .wd-flex-row-main-cotainer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+  }
+
+  .wb-button-textleft{
+    text-align: left;
+}
+
+.wd-main-navigation .wd-icon{
+    padding-right:2px;
+}
+
+.main_btn .wd-icon{
+    margin-right: 2%;
+}

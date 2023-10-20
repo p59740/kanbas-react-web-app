@@ -1,0 +1,52 @@
+.custom-indent {
+    padding-left: 20px;
+  }
+
+.wd-icon{
+    margin:2px;
+}
+
+.wd-icon-moreInter{
+    margin:10px;
+}
+  .my-link {
+    color: red;
+    text-decoration: none;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: inherit; 
+  }
+  
+
+
+  .btn-consistent-width {
+    width: 250px; 
+    text-align: left;
+  }
+  
+  .smaller-text {
+    font-size: 14px;
+  }
+
+  .lightgray-btn {
+    background-color: lightgray;
+}
+
+.module-icons {
+  display: flex;
+  align-items: center;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-icons {
+  display: flex;
+  align-items: center;         
+}
