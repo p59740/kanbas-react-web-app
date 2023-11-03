@@ -1,4 +1,3 @@
-import db from "../Database";
 import { Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
@@ -8,10 +7,11 @@ import {FaBars} from "react-icons/fa";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 
-function Courses() {
+function Courses({ courses }) {
+    console.log(courses)
     const { courseId } = useParams();
     const { pathname } = useLocation();
-    const course = db.courses.find((course) => course._id === courseId);
+    const course = courses.find((course) => course._id === courseId);
     const breadcrumb = () => {
         const path = pathname.split("/");
         return decodeURI(path[path.length - 1]);

@@ -38,3 +38,11 @@
     line-height: 1em;
 
 }
+
+.btn.btn-block{
+    margin: 2px;
+}
+
+.btn-outline-secondary{
+    border: none;
+}

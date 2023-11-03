@@ -51,8 +51,8 @@ function CourseStatus(){
               <h4>Course Status</h4>
               <div>
                 <span>
-                  <button type="button" className="" style={{color:"black"}}>
-                  <FaBan className="wd-icon" style={{ color: 'black' }}/>
+                  <button type="button" className="btn btn-danger">
+                  <FaBan className="wd-icon" />
                     Unpublished
                   </button>
                   <button type="button" className="btn btn-success">

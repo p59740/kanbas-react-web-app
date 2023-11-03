@@ -15,10 +15,10 @@ function App() {
         <Route path="/Hello"    element={<HelloWorld/>}/>
         <Route path="/Labs/*"   element={<Labs/>}/>
         <Route path="/Kanbas/*" element={<Kanbas/>}/>
-        
         </Routes>
         </div>
     </HashRouter>
   );
 }
+
 export default App;
