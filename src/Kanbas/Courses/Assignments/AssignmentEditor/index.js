@@ -1,20 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import db from "../../../Database";
+import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
 import { FaEllipsisV,FaPlus,FaCaretDown,FaCheckCircle } from "react-icons/fa";
+import {
+  updateAssignment,
+  addAssignment, 
+} from "../assignmentsReducer";
+
 function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId);
+    const { courseId ,assignmentId } = useParams();
 
+    const navigate = useNavigate();
 
-  const { courseId } = useParams();
-  const navigate = useNavigate();
-  const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
+    const dispatch = useDispatch();
+    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+    const assignment = assignments.find((assignment) => assignment._id === assignmentId);
+   
+    const [editedTitle, setEditedTitle] = useState("New Assignment");
+    const [editedDescription, setEditedDescription] = useState("New Assignment Description");
+    const [editedPoints, setEditedPoints] = useState(100);
+    const [editedAssignDate, setEditedAssignDate] = useState("");
+    const [editedDueDate, setEditedDueDate] = useState("");
+    const [editedAvailableFrom, setEditedAvailableFrom] = useState("");
+    const [editedUntil, setEditedUntil] = useState("");
+  
+    useEffect(() => {
+      if (assignment) {
+        setEditedTitle(assignment.title);
+        setEditedDescription(assignment.description);
+        setEditedPoints(assignment.points);
+        setEditedAssignDate(assignment.assignDate);
+        setEditedDueDate(assignment.due);
+        setEditedAvailableFrom(assignment.availableFrom);
+        setEditedUntil(assignment.until);
+      }
+    }, [assignment]);
+    
+ 
+
+    const handleSave = () => {
+      const updatedAssignment = {
+        _id: assignmentId,
+        title: editedTitle,
+        description: editedDescription,
+        points: editedPoints,
+        assignDate: editedAssignDate,
+        due: editedDueDate,
+        availableFrom: editedAvailableFrom,
+        until: editedUntil,
+        course: courseId,
+      };
+
+      if (assignment) {
+        dispatch(updateAssignment(updatedAssignment));
+      } else {
+        dispatch(addAssignment(updatedAssignment));
+      }
+
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    };
   return (
     <div className="w-100">
       <div className="wd-flex-grow-1">
@@ -39,13 +84,16 @@ function AssignmentEditor() {
       <hr />
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">Assignment Name</label>
-        <input value={assignment.title}
-             className="form-control mb-2" />
+        <input value={editedTitle}
+             className="form-control mb-2" onChange={(e) => setEditedTitle(e.target.value)} />
       </div>
       <div className="mb-3">
-        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3">
-          This assignment describes how to install the development environment for creating and working with Web applications we will be developing this semester. We will add new content every week, pushing the code to a GitHub source repository, and then deploying the content to a remote server hosted on Netlify.
-        </textarea>
+        <textarea
+        value={editedDescription } 
+        className="form-control mb-2"
+        onChange={(e) => setEditedDescription(e.target.value)}
+        />
+
       </div>
       <br />
       <div className="container">
@@ -53,13 +101,11 @@ function AssignmentEditor() {
           <label htmlFor="staticEmail" className="col-sm-4 col-form-label">Points</label>
           <div className="col-sm-6">
             <input
-              type="text"
-              readOnly
+              type="number"
+              value={editedPoints}
               className="form-control"
-              id="staticEmail"
-              value="100"
-              style={{ backgroundColor: 'white' }}
-            />
+              onChange={(e) => setEditedPoints(parseInt(e.target.value, 10))}
+      />
           </div>
         </div>
         <div className="mb-3 row">
@@ -189,36 +235,43 @@ function AssignmentEditor() {
                 <b>Due</b>
               </label>
               <br />
+            
               <input
-                className="form-control-c"
-                type="datetime"
-                id="dattimeinput"
+                type="date"
+                value={editedDueDate}
+                className="form-control mb-2"
+                onChange={(e) => setEditedDueDate(e.target.value)}
                 style={{ margin: '10px', width: '80%' }}
-                placeholder="Sep 18, 2023, 11:59 PM"
-              />
+              />    
+
               <br />
-              
-              <label style={{ width: '50%', marginLeft: '10px', marginBottom: '5px' }}>
-                <b>Available From</b>
-              </label>
-              <label style={{ marginBottom: '5px' }}>
-                <b>Until</b>
-              </label>
-              <br />
-              <input
-                className="form-control-c"
-                type="datetime-local"
-                id="dattimeinput"
-                style={{ margin: '10px', width: '45%' ,border: '1px solid lightgray'}}
-                placeholder="Sep 16, 2023, 11:59 PM"
-              />
-              <input
-                className="form-control-c"
-                type="datetime-local"
-                id="dattimeinput"
-                style={{ margin: '10px' ,width: '45%' ,border: '1px solid lightgray'}}
-                placeholder="Sep 18, 2023, 11:59 PM"
-              />
+              <div class="row">
+                <div class="col-md-5"> 
+                  <label style={{ marginLeft: '10px' }}>
+                    <b>Available From</b>
+                  </label>
+                  <input
+                    type="date"
+                    value={editedAvailableFrom}
+                    className="form-control mb-2"
+                    onChange={(e) => setEditedAvailableFrom(e.target.value)}
+                    style={{ margin: '10px' }}
+                  />
+                </div>
+                        
+                <div class="col-md-5">
+                  <label style={{ marginLeft: '5px' }}>
+                    <b>Until</b>
+                  </label>
+                  <input
+                    type="date"
+                    value={editedUntil}
+                    className="form-control mb-2"
+                    onChange={(e) => setEditedUntil(e.target.value)}
+                    style={{ margin: '10px' }}
+                />
+                </div>
+              </div>        
             </div>
             <button style={{ width: '100%'  }}>
               <FaPlus />

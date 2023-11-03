@@ -3,11 +3,24 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSubtract,faCheckCircle, faEllipsisV,faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import './ModuleList.css';
-import db from '../../Database';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
+import {BsTrash3Fill} from 'react-icons/bs';
+import {LuPenSquare} from 'react-icons/lu';
 
-function Modules() {
+function ModuleList() {
     const { courseId } = useParams();
-    const modules = db.modules;
+    const modules = useSelector((state) => state.modulesReducer.modules);
+    const module = useSelector((state) => state.modulesReducer.module);
+    const dispatch = useDispatch();
+
+    
+    // const modules = db.modules;
     const [expandedModules, setExpandedModules] = useState({});
 
     const toggleModule = (index) => {
@@ -23,6 +36,28 @@ function Modules() {
     return (
         <div>
             <ul className="list-group module-list w-100">
+                {/* add new mudole buttons */}
+                <li className="list-group-item">
+                    <div className="input-group">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="inputGroup">
+                                <button className='btn btn-success btn-lg btn-block'  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>
+                                <button className='btn btn-primary btn-lg btn-block' onClick={() => dispatch(updateModule(module))}>Update</button>
+
+                            </span>
+                        </div>
+                        <input className ="form-control" value={module.name}
+                        onChange={(e) => 
+                            dispatch(setModule({ ...module, name: e.target.value }))}
+                        />
+                        <textarea  className ="form-control" value={module.description}
+                        onChange={(e) => 
+                            dispatch(setModule({ ...module, description: e.target.value }))}
+                        />
+                    </div>
+                </li>
+
+
                 {
                     modules
                         .filter(module => module.course === courseId)
@@ -39,13 +74,20 @@ function Modules() {
                                     <FontAwesomeIcon className="wd-icon" icon={faCaretDown} style={ellipsisIconStyle} />
                                     <span className='custom-indent'>{module.name}</span>
                                     </div>
-                                <div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <div style={{ flexGrow: 1 }}>
                                     <FontAwesomeIcon className="wd-icon-moreInter" icon={faCheckCircle} style={checkIconStyle} />
                                     <FontAwesomeIcon className="wd-icon-moreInter" icon={faCaretDown} style={ellipsisIconStyle} />
                                     {expandedModules[index] ?  <FontAwesomeIcon className="wd-icon-moreInter" icon={faSubtract} style={ellipsisIconStyle} /> : 
                                         <FontAwesomeIcon className="wd-icon-moreInter" icon={faPlus} style={ellipsisIconStyle} />}
                                     
                                     <FontAwesomeIcon className="wd-icon-moreInter" icon={faEllipsisV} style={ellipsisIconStyle} />
+                                    </div>
+                                    <div>
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => dispatch(deleteModule(module._id))}> <BsTrash3Fill /> </button>
+                                        <button className="btn btn-success btn-sm btn-block" onClick={() => dispatch(setModule(module))}> <LuPenSquare /> </button>
+                                    </div>
+
                                 </div>
                             </div>
                         </li>
@@ -64,4 +106,4 @@ function Modules() {
     );
 }
 
-export default Modules;
+export default ModuleList;

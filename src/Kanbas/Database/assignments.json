@@ -1,11 +1,12 @@
 [
-  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "due": "2023-11-30", "points": 100 },
-  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "due": "2023-12-15", "points": 85 },
-  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "due": "2023-12-20", "points": 90 },
-  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "due": "2023-11-25", "points": 75 },
-  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "due": "2023-12-10", "points": 80 },
-  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "due": "2023-12-15", "points": 95 },
-  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "due": "2023-11-28", "points": 70 },
-  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "due": "2023-12-12", "points": 90 },
-  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "due": "2023-12-18", "points": 100 }
+  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "due": "2023-11-30", "points": 100, "description": "Description of Propulsion Assignment" },
+  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "due": "2023-12-15", "points": 85, "description": "Description of Combustion Analysis" },
+  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "due": "2023-12-20", "points": 90, "description": "Description of Nozzle Design Project" },
+  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "due": "2023-11-25", "points": 75, "description": "Description of Aerodynamics Quiz" },
+  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "due": "2023-12-10", "points": 80, "description": "Description of Flow Analysis" },
+  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "due": "2023-12-15", "points": 95, "description": "Description of Heating Analysis" },
+  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "due": "2023-11-28", "points": 70, "description": "Description of Structural Design Task" },
+  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "due": "2023-12-12", "points": 90, "description": "Description of Orbital Calculations" },
+  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "due": "2023-12-18", "points": 100, "description": "Description of Systems Engineering Exam" }
 ]
+

@@ -26,3 +26,7 @@
 .wd-icon{
     margin:2px;
 }
+
+.wd-assignments .list-group-item.none-border {
+    border: none;
+}
