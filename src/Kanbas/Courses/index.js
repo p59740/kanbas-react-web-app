@@ -12,10 +12,10 @@ import axios from "axios";
 function Courses() {
     // console.log(courses)
     const { courseId } = useParams();
-    const API_BASE = process.env.REACT_APP_API_BASE;
+    // const API_BASE = process.env.REACT_APP_API_BASE;
     // const URL = "http://localhost:4000/api/courses";
-    const URL = `${API_BASE}/courses`;
-
+    // const URL = `${API_BASE}/courses`;
+    const URL = "https://kanbas-node-server-app-uu6q.onrender.com/api/courses";
     const { pathname } = useLocation();
     // const course = courses.find((course) => course._id === courseId);
     const [course, setCourse] = useState({});
