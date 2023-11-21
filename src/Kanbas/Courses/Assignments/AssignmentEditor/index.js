@@ -89,7 +89,9 @@ function AssignmentEditor() {
         });
       }
       navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-      window.location.reload();
+      // window.location.reload();
+
+      
     };
 
     // const handleUpdateAssignment = async (assignmentId) => {
