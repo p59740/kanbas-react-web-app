@@ -67,7 +67,7 @@ function AssignmentEditor() {
     // };
 
 
-    const handleSaveNew = () => {
+    const handleSaveNew = async () => {
       const updatedAssignment = {
         _id: assignmentId,
         title: editedTitle,
