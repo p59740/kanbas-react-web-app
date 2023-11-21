@@ -8,9 +8,9 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
   ) {
     // const courses = db.courses;
     console.log("1111")
-    console.log(courses)
+    console.log(courses._id)
     const colorArray = [  '#91349B' , 'rgb(212, 27, 44)','#1a7f93', '#3C4F36'];
-    const color = colorArray[(Number(courses[0].id)) % colorArray.length];// courses is an array
+    // const color = colorArray[(Number(courses[0].id)) % colorArray.length];// courses is an array
     
     
     

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSubtract,faCheckCircle, faEllipsisV,faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,37 @@ import {
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
 import {BsTrash3Fill} from 'react-icons/bs';
 import {LuPenSquare} from 'react-icons/lu';
+import { findModulesForCourse,  createModule } from "./client";
+import * as client from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
+    //A5
+    console.log(courseId)
+    useEffect(() => {
+        findModulesForCourse(courseId)
+          .then((modules) =>
+            dispatch(setModules(modules))
+        );
+      }, [courseId]);
+
+    const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+        dispatch(deleteModule(moduleId));
+    });
+    };
+
+    const handleUpdateModule = async () => {
+        const status = await client.updateModule(module);
+        dispatch(updateModule(module));
+      };
+    
+    
+    //A5!
     const modules = useSelector((state) => state.modulesReducer.modules);
     const module = useSelector((state) => state.modulesReducer.module);
     const dispatch = useDispatch();
@@ -33,6 +58,13 @@ function ModuleList() {
     const checkIconStyle = { color: '#00a600' };
     const ellipsisIconStyle = { color: '#787878' };
 
+    const handleAddModule = () => {
+        createModule(courseId, module).then((module) => {
+          dispatch(addModule(module));
+        });
+      };
+    
+
     return (
         <div>
             <ul className="list-group module-list w-100">
@@ -41,8 +73,10 @@ function ModuleList() {
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="inputGroup">
-                                <button className='btn btn-success btn-lg btn-block'  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>
-                                <button className='btn btn-primary btn-lg btn-block' onClick={() => dispatch(updateModule(module))}>Update</button>
+                            <button className='btn btn-danger btn-lg btn-block'  onClick={handleAddModule} > Add</button>
+                                {/* <button className='btn btn-success btn-lg btn-block'  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button> */}
+                                {/* <button className='btn btn-primary btn-lg btn-block' onClick={() => dispatch(updateModule(module))}>Update</button> */}
+                            <button className='btn btn-primary btn-lg btn-block' onClick={handleUpdateModule}  >Update</button>
 
                             </span>
                         </div>
@@ -84,7 +118,8 @@ function ModuleList() {
                                     <FontAwesomeIcon className="wd-icon-moreInter" icon={faEllipsisV} style={ellipsisIconStyle} />
                                     </div>
                                     <div>
-                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => dispatch(deleteModule(module._id))}> <BsTrash3Fill /> </button>
+                                        {/* <button className="btn btn-danger btn-sm btn-block" onClick={() => dispatch(deleteModule(module._id))}> <BsTrash3Fill /> </button> */}
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => handleDeleteModule(module._id)} >  <BsTrash3Fill /> </button>
                                         <button className="btn btn-success btn-sm btn-block" onClick={() => dispatch(setModule(module))}> <LuPenSquare /> </button>
                                     </div>
 

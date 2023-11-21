@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { setAssignment, deleteAssignment } from "./assignmentsReducer";
+import React,{useEffect, useState} from "react";
+import {  setAssignment, deleteAssignment ,setAssignments } from "./assignmentsReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams , useNavigate} from "react-router-dom";
 import { FaEllipsisV,FaPlus,FaCaretDown,FaCheckCircle } from "react-icons/fa";
@@ -7,15 +7,23 @@ import { FaFilePen } from "react-icons/fa6";
 import "./index.css";
 import { Modal, Button } from "react-bootstrap";
 import {BsTrash3Fill} from 'react-icons/bs';
+import * as client from "./client"; 
 
 function Assignments() {
     const { courseId } = useParams();
+    useEffect(() => {
+        client.findAssignmentsForCourses(courseId)
+          .then((assignments) =>
+            dispatch(setAssignments(assignments))
+        );
+      }, [courseId]);
+    const dispatch = useDispatch();
+
     const assignments = useSelector((state) => state.assignmentsReducer.assignments);
     const courseAssignments = assignments.filter(
         (assignment) => assignment.course === courseId);
     const ellipsisIconStyle = { color: '#787878' ,margin:'2px'};
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [assignmentToDelete, setAssignmentToDelete] = useState(null);
@@ -33,6 +41,8 @@ function Assignments() {
         }));
     };
 
+
+    
     const openDeleteDialog = (assignment) => {
         setAssignmentToDelete(assignment);
         setDeleteDialogOpen(true);
@@ -43,11 +53,21 @@ function Assignments() {
         setDeleteDialogOpen(false);
       };
     
-      const confirmDelete = () => {
-        if (assignmentToDelete) {
-          dispatch(deleteAssignment(assignmentToDelete._id));
-          setAssignmentToDelete(null);
-          setDeleteDialogOpen(false);
+    //   const confirmDelete = () => {
+    //     if (assignmentToDelete) {
+    //       dispatch(deleteAssignment(assignmentToDelete._id));
+    //       setAssignmentToDelete(null);
+    //       setDeleteDialogOpen(false);
+    //     }
+    //   };
+
+      const handleDeleteClick = () => {
+        if(assignmentToDelete){
+            client.deleteAssignment(assignmentToDelete._id).then((status) => {
+                dispatch(deleteAssignment(assignmentToDelete._id)) ;
+                setAssignmentToDelete(null);
+                setDeleteDialogOpen(false);
+            })
         }
       };
 
@@ -130,7 +150,7 @@ function Assignments() {
                             <Button variant="secondary" onClick={closeDeleteDialog}>
                             No
                             </Button>
-                            <Button variant="danger" onClick={confirmDelete}>
+                            <Button variant="danger" onClick={handleDeleteClick}>
                             Yes
                             </Button>
                         </Modal.Footer>
