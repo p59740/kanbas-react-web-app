@@ -11,15 +11,16 @@ import * as client from "./client";
 
 function Assignments() {
     const { courseId } = useParams();
+    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
     useEffect(() => {
+     
         client.findAssignmentsForCourses(courseId)
           .then((assignments) =>
             dispatch(setAssignments(assignments))
         );
-      }, [courseId]);
+      }, [courseId, assignments]);
     const dispatch = useDispatch();
 
-    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
     const courseAssignments = assignments.filter(
         (assignment) => assignment.course === courseId);
     const ellipsisIconStyle = { color: '#787878' ,margin:'2px'};

@@ -20,8 +20,6 @@ export const createAssignment = async (courseId, assignment) => {
 
 export const findAssignmentsForCourses = async (courseId) => {
   const response = await axios.get(`${COURSES_URL}/${courseId}/assignments`);
-  console.log(courseId)
-//   console.log(response.data)
   return response.data;
 };
 
