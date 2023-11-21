@@ -83,13 +83,11 @@ function AssignmentEditor() {
       if (assignment) {
         client.toUpdateAssignment(assignmentId, updatedAssignment);
           dispatch(updateAssignment(updatedAssignment));
-          navigate(`/Kanbas/Courses/${courseId}/Assignments`);
       } else {
         client.createAssignment(courseId, updatedAssignment).then((updatedAssignment) => {
           dispatch(addAssignment(updatedAssignment));
         });
       }
-
       navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
 
