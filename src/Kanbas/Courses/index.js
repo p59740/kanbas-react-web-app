@@ -6,12 +6,33 @@ import Assignments from "./Assignments";
 import {FaBars} from "react-icons/fa";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
+import {useState, useEffect} from "react"
+import axios from "axios";
 
-function Courses({ courses }) {
-    console.log(courses)
+function Courses() {
+    // console.log(courses)
     const { courseId } = useParams();
+    const API_BASE = process.env.REACT_APP_API_BASE;
+    // const URL = "http://localhost:4000/api/courses";
+    const URL = `${API_BASE}/courses`;
+
     const { pathname } = useLocation();
-    const course = courses.find((course) => course._id === courseId);
+    // const course = courses.find((course) => course._id === courseId);
+    const [course, setCourse] = useState({});
+    const findCourseById = async (courseId) => {
+      const response = await axios.get(
+        `${URL}/${courseId}`
+      );
+      setCourse(response.data);
+    };
+
+    useEffect(() => {
+      findCourseById(courseId);
+    }, [courseId]);
+    
+
+    
+
     const breadcrumb = () => {
         const path = pathname.split("/");
         return decodeURI(path[path.length - 1]);

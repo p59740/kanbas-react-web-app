@@ -7,15 +7,20 @@ import {
   updateAssignment,
   addAssignment, 
 } from "../assignmentsReducer";
+import * as client from "../client"; 
+
 
 function AssignmentEditor() {
     const { courseId ,assignmentId } = useParams();
+    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+    const assignment = assignments.find((assignment) => assignment._id === assignmentId);
 
+    // console.log(assignment.title)
+    // console.log("aaa "+ assignment)
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
-    const assignment = assignments.find((assignment) => assignment._id === assignmentId);
+
    
     const [editedTitle, setEditedTitle] = useState("New Assignment");
     const [editedDescription, setEditedDescription] = useState("New Assignment Description");
@@ -39,7 +44,30 @@ function AssignmentEditor() {
     
  
 
-    const handleSave = () => {
+    // const handleSave = () => {
+    //   const updatedAssignment = {
+    //     _id: assignmentId,
+    //     title: editedTitle,
+    //     description: editedDescription,
+    //     points: editedPoints,
+    //     assignDate: editedAssignDate,
+    //     due: editedDueDate,
+    //     availableFrom: editedAvailableFrom,
+    //     until: editedUntil,
+    //     course: courseId,
+    //   };
+
+    //   if (assignment) {
+    //     dispatch(updateAssignment(updatedAssignment));
+    //   } else {
+    //     dispatch(addAssignment(updatedAssignment));
+    //   }
+
+    //   navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    // };
+
+
+    const handleSaveNew = () => {
       const updatedAssignment = {
         _id: assignmentId,
         title: editedTitle,
@@ -53,13 +81,23 @@ function AssignmentEditor() {
       };
 
       if (assignment) {
-        dispatch(updateAssignment(updatedAssignment));
+        client.toUpdateAssignment(assignmentId, updatedAssignment);
+          dispatch(updateAssignment(updatedAssignment));
+          navigate(`/Kanbas/Courses/${courseId}/Assignments`);
       } else {
-        dispatch(addAssignment(updatedAssignment));
+        client.createAssignment(courseId, updatedAssignment).then((updatedAssignment) => {
+          dispatch(addAssignment(updatedAssignment));
+        });
       }
 
       navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
+
+    // const handleUpdateAssignment = async (assignmentId) => {
+    //   const status = await toUpdateAssignment(assignmentId, assignment);
+    //   dispatch(updateAssignment(assignment));
+    // };
+
   return (
     <div className="w-100">
       <div className="wd-flex-grow-1">
@@ -286,10 +324,13 @@ function AssignmentEditor() {
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
                     className="btn" style={{backgroundColor:'gray'}}>
                 Cancel
-            </Link>
-            <button onClick={handleSave} className="btn btn-danger me-2">
+                </Link>
+            <button onClick={handleSaveNew}
+            
+             className="btn btn-danger me-2">
                 Save
             </button>
+           
         </span>
       </div>
     </div>
