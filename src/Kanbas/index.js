@@ -32,7 +32,6 @@ function Kanbas() {
   }, []);
 
   // a5 !
-
   // const [course, setCourse] = useState({
   //   name: "New Course",      number: "New Number",
   //   startDate: "2023-09-10", endDate: "2023-12-15",
