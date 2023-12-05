@@ -5,8 +5,8 @@ const API_BASE = process.env.REACT_APP_API_BASE;
 // const COURSES_URL = `${API_BASE}/courses`;
 
 
-const COURSES_URL = "https://kanbas-node-server-app-uu6q.onrender.com/api/courses";
-const ASSIGNMENTS_URL = "https://kanbas-node-server-app-uu6q.onrender.com/api/assignments";
+const COURSES_URL = "https://kanbas-node-db-server-app.onrender.com/api/courses";
+const ASSIGNMENTS_URL = "https://kanbas-node-db-server-app.onrender.com/api/assignments";
 
 
 

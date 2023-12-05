@@ -11,7 +11,7 @@ function WorkingWithArrays() {
     });
 
     const [todos, setTodos] = useState([]);
-    const API = "https://kanbas-node-server-app-uu6q.onrender.com/a5/todos";
+    const API = "https://kanbas-node-db-server-app.onrender.com/a5/todos";
 
     const createTodo = async () => {
         const response = await axios.get(`${API}/create`);
