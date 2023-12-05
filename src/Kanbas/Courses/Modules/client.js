@@ -4,8 +4,8 @@ const API_BASE = process.env.REACT_APP_API_BASE;
 // const MODULES_URL = `${API_BASE}/modules`;
 // const COURSES_URL = `${API_BASE}/courses`;
 
-const COURSES_URL = "https://kanbas-node-server-app-uu6q.onrender.com/api/courses";
-const MODULES_URL = "https://kanbas-node-server-app-uu6q.onrender.com/api/modules";
+const COURSES_URL = "https://kanbas-node-db-server-app.onrender.com/api/courses";
+const MODULES_URL = "https://kanbas-node-db-server-app.onrender.com/api/modules";
 
 export const updateModule = async (module) => {
   const response = await axios.
