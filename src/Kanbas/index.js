@@ -3,12 +3,14 @@ import KanbasNavigation from "./kanbasNavigation";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
-import Account from "./Account";
+import Account from "../Project/users/account";
 import Calendar from "./Calendar";
 import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
+import Signin from "../Project/users/signin";
+import UserTable from "../Project/users/table";
 
 function Kanbas() {
   const [errorMessage, setErrorMessage] = useState('');
@@ -111,8 +113,10 @@ function Kanbas() {
     <div className="d-flex">
         <KanbasNavigation/>
         <Routes>
-            <Route path="/" element={<Navigate to="Dashboard" />} />
-            <Route path="Account" element={<Account/>} />
+            {/* <Route path="/" element={<Navigate to="Dashboard" />} /> */}
+            <Route path="/" element={<Signin/>} />
+            <Route path="/admin/users" element={<UserTable />} />
+            <Route path="/account" element={<Account/>} />
             <Route path="Dashboard" element={<Dashboard
                 courses={courses}
                   course={course}
